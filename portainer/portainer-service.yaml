@@ -1,0 +1,22 @@
+---
+# Source: portainer/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: portainer-svc
+  namespace: debug
+  labels:
+    io.portainer.kubernetes.application.stack: portainer
+    app.kubernetes.io/name: portainer
+    app.kubernetes.io/instance: portainer
+    app.kubernetes.io/version: "ce-latest-ee-2.10.0"
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 9000
+      protocol: TCP
+      name: http      
+  selector:
+    app.kubernetes.io/name: portainer
+    app.kubernetes.io/instance: portainer
