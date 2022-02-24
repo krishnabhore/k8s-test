@@ -12,7 +12,7 @@ spec:
     client: nokia
     tier: frontend
     type: testing
-  type: NodePort
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
